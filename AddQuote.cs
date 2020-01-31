@@ -12,9 +12,19 @@ namespace MegaDesk_Bustillos
 {
     public partial class AddQuote : Form
     {
+        enum Material { Laminate, Oak, Rosewood, Venner, Pine }
         public AddQuote()
         {
             InitializeComponent();
+            List<Material> MaterialList = new List<Material>();
+
+            //Adding to List
+            foreach (Material item in Enum.GetValues(typeof(Material)))
+                MaterialList.Add(item);
+
+            //Adding to ComboBox
+            foreach (var i in MaterialList)
+                comboBox1.Items.Add(i);
         }
 
         // DISABLE X BUTTON

@@ -17,17 +17,14 @@ namespace MegaDesk_Bustillos
         {
             InitializeComponent();
             List<Material> MaterialList = new List<Material>().ToList();
-           // comboBox1.DataSource = MaterialList;
-            
-                //Adding to List
-           foreach (Material item in Enum.GetValues(typeof(Material)))
-                MaterialList.Add(item);
-
-            //Adding to ComboBox
-            foreach (var i in MaterialList)
-               comboBox1.Items.Add(i);
-     
-    }
+           
+            //Adding to List
+            foreach (Material item in Enum.GetValues(typeof(Material)))
+               MaterialList.Add(item);
+               
+            comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
+           
+        }
 
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;

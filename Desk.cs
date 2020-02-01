@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace MegaDesk_Bustillos
 {
     enum DesktopMaterial {Laminate, Oak, Rosewood, Venner, Pine}
+    
 
 
-    class Desk
+    public class Desk
     {
         private const int WIDTHMAX = 96, WITHMIN = 24, DEPTHMAX = 48, DEPTHMIN = 12;
+        public String nameUser { get; set; }
     }
 }

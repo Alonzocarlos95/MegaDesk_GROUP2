@@ -151,6 +151,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(225, 28);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -243,7 +244,6 @@
 
         private System.Windows.Forms.Button ReturnBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox widthInput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox DepthInput;
@@ -255,5 +255,6 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

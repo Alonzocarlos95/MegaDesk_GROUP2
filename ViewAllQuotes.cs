@@ -12,9 +12,13 @@ namespace MegaDesk_Bustillos
 {
     public partial class ViewAllQuotes : Form
     {
+       
+         
+        
         public ViewAllQuotes()
         {
             InitializeComponent();
+           
         }
 
         // DISABLE X BUTTON

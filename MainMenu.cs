@@ -12,14 +12,16 @@ namespace MegaDesk_Bustillos
 {
     public partial class MainMenu : Form
     {
+        
         public MainMenu()
         {
             InitializeComponent();
+           
         }
         
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         // DISABLE X BUTTON
@@ -50,14 +52,16 @@ namespace MegaDesk_Bustillos
 
         private void SQbtn_Click(object sender, EventArgs e)
         {
+            
             SearchQuotes SQFrm = new SearchQuotes();
             SQFrm.Show();
             this.Hide();
         }
-
+        
         private void Exitbtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+           
         }
     }
 }

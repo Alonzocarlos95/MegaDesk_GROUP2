@@ -12,20 +12,20 @@ namespace MegaDesk_Bustillos
 {
     public partial class AddQuote : Form
     {
-        enum Material { Laminate, Oak, Rosewood, Venner, Pine }
+          
         public AddQuote()
         {
             InitializeComponent();
-            List<Material> MaterialList = new List<Material>().ToList();
            
+            List<DesktopMaterial> MaterialList = new List<DesktopMaterial>().ToList();
             //Adding to List
-            foreach (Material item in Enum.GetValues(typeof(Material)))
+           foreach (DesktopMaterial item in Enum.GetValues(typeof(DesktopMaterial)))
                MaterialList.Add(item);
                
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
-           
+            
         }
-
+        
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -47,6 +47,7 @@ namespace MegaDesk_Bustillos
         {
             MainMenu MenuFrm = new MainMenu();
             MenuFrm.Show();
+           
             this.Hide();
         }
 
@@ -132,6 +133,18 @@ namespace MegaDesk_Bustillos
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+
+            Program.DeskCustomer.Add(textBox1.Text );
+            Program.DeskCustomer.Add(widthInput.Text);
+            Program.DeskCustomer.Add(DepthInput.Text);
+            Program.DeskCustomer.Add(comboBox2.Text);
+            Program.DeskCustomer.Add(comboBox1.Text);
+            Program.DeskCustomer.Add(comboBox3.Text);
+            //MessageBox.Show(Customer);
+
+
+            //SearchQuotes envia = new SearchQuotes();
+
             DisplayQuote DQFrm = new DisplayQuote();
             DQFrm.label1.Text = "Customer Name: " + textBox1.Text;
             DQFrm.label3.Text = "Width: " + widthInput.Text;
@@ -141,6 +154,11 @@ namespace MegaDesk_Bustillos
             DQFrm.label7.Text = "Processing Time: " + comboBox3.Text + " Days";
             DQFrm.Show();
             this.Hide();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

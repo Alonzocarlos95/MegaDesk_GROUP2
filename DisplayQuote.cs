@@ -12,11 +12,14 @@ namespace MegaDesk_Bustillos
 {
     public partial class DisplayQuote : Form
     {
+      
         public DisplayQuote()
         {
             InitializeComponent();
+            
+            
         }
-
+        
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams

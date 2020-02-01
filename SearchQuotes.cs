@@ -65,10 +65,41 @@ namespace MegaDesk_Bustillos
            
             
             ViewAllQuotes Search = new ViewAllQuotes();
-            Search.custom.Text = Program.DeskCustomer[0];
-            Search.width.Text = Program.DeskCustomer[1];
-            Search.depth.Text = Program.DeskCustomer[2];
-            Search.Show();
+           
+            switch (comboBox1.Text)
+            {
+                case "Laminate":
+                    Search.materialTitle.Text = "LAMINATE";
+                    foreach (string item in Program.Laminate)
+                       Search.CustomerQuotes.Items.Add(item);
+                                  
+                    break;
+                case "Oak":
+                    Search.materialTitle.Text = "OAK";
+                    foreach (string item in Program.Oak)
+                        Search.CustomerQuotes.Items.Add(item);
+                    break;
+                case "Rosewood":
+                    Search.materialTitle.Text = "ROSEWOOD";
+                    foreach (string item in Program.Rosewood)
+                        Search.CustomerQuotes.Items.Add(item);
+                    break;
+                case "Venner":
+                    Search.materialTitle.Text = "VENNER";
+                    foreach (string item in Program.Venner)
+                        Search.CustomerQuotes.Items.Add(item);
+                    break;
+                case "Pine":
+                    Search.materialTitle.Text = "PINE";
+                    foreach (string item in Program.Pine)
+                        Search.CustomerQuotes.Items.Add(item);
+
+                    break;
+                default:
+                    MessageBox.Show("Error");
+                    break;
+            }
+             Search.Show();
            this.Hide();
 
         }

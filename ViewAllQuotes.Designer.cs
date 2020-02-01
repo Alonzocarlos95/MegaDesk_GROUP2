@@ -30,16 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAllQuotes));
             this.ReturnBtn = new System.Windows.Forms.Button();
-            this.custom = new System.Windows.Forms.Label();
-            this.width = new System.Windows.Forms.Label();
-            this.depth = new System.Windows.Forms.Label();
+            this.CustomerQuotes = new System.Windows.Forms.ListBox();
+            this.materialTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ReturnBtn
             // 
             this.ReturnBtn.BackColor = System.Drawing.Color.Yellow;
             this.ReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ReturnBtn.Location = new System.Drawing.Point(365, 170);
+            this.ReturnBtn.Location = new System.Drawing.Point(541, 433);
             this.ReturnBtn.Name = "ReturnBtn";
             this.ReturnBtn.Size = new System.Drawing.Size(106, 38);
             this.ReturnBtn.TabIndex = 1;
@@ -47,42 +46,36 @@
             this.ReturnBtn.UseVisualStyleBackColor = false;
             this.ReturnBtn.Click += new System.EventHandler(this.ReturnBtn_Click);
             // 
-            // custom
+            // CustomerQuotes
             // 
-            this.custom.AutoSize = true;
-            this.custom.Location = new System.Drawing.Point(37, 25);
-            this.custom.Name = "custom";
-            this.custom.Size = new System.Drawing.Size(51, 13);
-            this.custom.TabIndex = 2;
-            this.custom.Text = "Customer";
+            this.CustomerQuotes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerQuotes.FormattingEnabled = true;
+            this.CustomerQuotes.ItemHeight = 19;
+            this.CustomerQuotes.Location = new System.Drawing.Point(27, 42);
+            this.CustomerQuotes.MultiColumn = true;
+            this.CustomerQuotes.Name = "CustomerQuotes";
+            this.CustomerQuotes.Size = new System.Drawing.Size(629, 384);
+            this.CustomerQuotes.TabIndex = 2;
+            this.CustomerQuotes.Tag = "Name";
             // 
-            // width
+            // materialTitle
             // 
-            this.width.AutoSize = true;
-            this.width.Location = new System.Drawing.Point(37, 62);
-            this.width.Name = "width";
-            this.width.Size = new System.Drawing.Size(35, 13);
-            this.width.TabIndex = 3;
-            this.width.Text = "Width";
-            // 
-            // depth
-            // 
-            this.depth.AutoSize = true;
-            this.depth.Location = new System.Drawing.Point(37, 102);
-            this.depth.Name = "depth";
-            this.depth.Size = new System.Drawing.Size(36, 13);
-            this.depth.TabIndex = 4;
-            this.depth.Text = "Depth";
+            this.materialTitle.AutoSize = true;
+            this.materialTitle.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialTitle.Location = new System.Drawing.Point(290, 9);
+            this.materialTitle.Name = "materialTitle";
+            this.materialTitle.Size = new System.Drawing.Size(80, 23);
+            this.materialTitle.TabIndex = 3;
+            this.materialTitle.Text = "Material";
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(483, 217);
-            this.Controls.Add(this.depth);
-            this.Controls.Add(this.width);
-            this.Controls.Add(this.custom);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(668, 487);
+            this.Controls.Add(this.materialTitle);
+            this.Controls.Add(this.CustomerQuotes);
             this.Controls.Add(this.ReturnBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -99,8 +92,7 @@
         #endregion
 
         private System.Windows.Forms.Button ReturnBtn;
-        public System.Windows.Forms.Label custom;
-        public System.Windows.Forms.Label width;
-        public System.Windows.Forms.Label depth;
+        public System.Windows.Forms.ListBox CustomerQuotes;
+        public System.Windows.Forms.Label materialTitle;
     }
 }

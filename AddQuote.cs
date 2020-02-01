@@ -12,7 +12,15 @@ namespace MegaDesk_Bustillos
 {
     public partial class AddQuote : Form
     {
-          
+        public int basePrice = 200;
+        public int area;
+        public int drawers;
+        public int materials;
+        public int widthNumber;
+        public int depthNumber;
+        public int drawersNumber;
+        public double results;
+        public int orderRush;
         public AddQuote()
         {
             InitializeComponent();
@@ -25,6 +33,9 @@ namespace MegaDesk_Bustillos
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
             
         }
+
+        // Date
+
         
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;
@@ -40,7 +51,7 @@ namespace MegaDesk_Bustillos
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
@@ -134,26 +145,105 @@ namespace MegaDesk_Bustillos
         private void AddBtn_Click(object sender, EventArgs e)
         {
 
-            Program.DeskCustomer.Add(textBox1.Text );
-            Program.DeskCustomer.Add(widthInput.Text);
-            Program.DeskCustomer.Add(DepthInput.Text);
-            Program.DeskCustomer.Add(comboBox2.Text);
-            Program.DeskCustomer.Add(comboBox1.Text);
-            Program.DeskCustomer.Add(comboBox3.Text);
-            //MessageBox.Show(Customer);
+
+            // Calculate
+            widthNumber = Int32.Parse(widthInput.Text);
+            depthNumber = Int32.Parse(DepthInput.Text);
+            area = widthNumber * depthNumber; // $1 the price per in2
+            drawersNumber = Int32.Parse(comboBox2.Text);
+            drawers = drawersNumber * 50;
+            if (comboBox1.Text == "Laminate")
+                materials = 100;
+            else if (comboBox1.Text == "Oak")
+                materials = 200;
+            else if (comboBox1.Text == "Pine")
+                materials = 50;
+            else if (comboBox1.Text == "Rosewood")
+                materials = 300;
+            else if (comboBox1.Text == "Venner")
+                materials = 125;
+
+            if (comboBox3.Text == "3" && area < 1000)
+                orderRush = 60;
+            else if (comboBox3.Text == "5" && area < 1000)
+                orderRush = 40;
+            else if (comboBox3.Text == "7" && area < 1000)
+                orderRush = 30;
+
+            if (comboBox3.Text == "3" && (area >= 1000 && area <= 2000))
+                orderRush = 70;
+            else if (comboBox3.Text == "5" && (area >= 1000 && area <= 2000))
+                orderRush = 50;
+            else if (comboBox3.Text == "7" && (area >= 1000 && area <= 2000))
+                orderRush = 35;
+
+            if (comboBox3.Text == "3" && area > 2000)
+                orderRush = 80;
+            else if (comboBox3.Text == "5" && area > 2000)
+                orderRush = 60;
+            else if (comboBox3.Text == "7" && area > 2000)
+                orderRush = 40;
 
 
-            //SearchQuotes envia = new SearchQuotes();
 
-            DisplayQuote DQFrm = new DisplayQuote();
-            DQFrm.label1.Text = "Customer Name: " + textBox1.Text;
-            DQFrm.label3.Text = "Width: " + widthInput.Text;
-            DQFrm.label4.Text = "Depth: " + DepthInput.Text;
-            DQFrm.label5.Text = "Drawers: " + comboBox2.Text;
-            DQFrm.label6.Text = "Material: " + comboBox1.Text;
-            DQFrm.label7.Text = "Processing Time: " + comboBox3.Text + " Days";
-            DQFrm.Show();
-            this.Hide();
+            results = basePrice + area + drawers + materials + orderRush;
+            switch (comboBox1.Text)
+            {
+                case "Laminate":
+                    Program.Laminate.Add("Name Customer: " + textBox1.Text);
+                    Program.Laminate.Add("Width: " + widthInput.Text);
+                    Program.Laminate.Add("Depth: " + DepthInput.Text);
+                    Program.Laminate.Add("Drawers: " + comboBox2.Text);
+                    Program.Laminate.Add("Order Processing Days: " + comboBox3.Text);
+                    Program.Laminate.Add("Price Quote: " + results);
+                break;
+
+                case "Oak":
+
+                    Program.Oak.Add("Name Customer: " + textBox1.Text);
+                    Program.Oak.Add("Width: " + widthInput.Text);
+                    Program.Oak.Add("Depth: " + DepthInput.Text);
+                    Program.Oak.Add("Drawers: " + comboBox2.Text);
+                    Program.Oak.Add("Order Processing Days: " + comboBox3.Text);
+                    Program.Oak.Add("Price Quote: " + results);
+                    break;
+                case "Rosewood":
+                    Program.Rosewood.Add("Name Customer: " + textBox1.Text);
+                    Program.Rosewood.Add("Width: " + widthInput.Text);
+                    Program.Rosewood.Add("Depth: " + DepthInput.Text);
+                    Program.Rosewood.Add("Drawers: " + comboBox2.Text);
+                    Program.Rosewood.Add("Order Processing Days: " + comboBox3.Text);
+                    Program.Rosewood.Add("Price Quote: " + results);
+                    break;
+                case "Venner":
+                    Program.Venner.Add("Name Customer: " + textBox1.Text);
+                    Program.Venner.Add("Width: " + widthInput.Text);
+                    Program.Venner.Add("Depth: " + DepthInput.Text);
+                    Program.Venner.Add("Drawers: " + comboBox2.Text);
+                    Program.Venner.Add("Order Processing Days: " + comboBox3.Text);
+                    Program.Venner.Add("Price Quote: " + results);
+                    break;
+                case "Pine":
+                    Program.Pine.Add("Name Customer: " + textBox1.Text);
+                    Program.Pine.Add("Width: " + widthInput.Text);
+                    Program.Pine.Add("Depth: " + DepthInput.Text);
+                    Program.Pine.Add("Drawers: " + comboBox2.Text);
+                    Program.Pine.Add("Order Processing Days: " + comboBox3.Text);
+                    Program.Pine.Add("Price Quote: " + results);
+                    break;
+                default:
+
+                    MessageBox.Show("Error");
+                    break;
+            }
+            AddQuote Adding = new AddQuote();
+            textBox1.Text = "";
+            widthInput.Text = "";
+            DepthInput.Text = "";
+            comboBox2.Text = "";
+            comboBox3.Text = "";
+            Adding.Show();
+            Adding.Hide();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

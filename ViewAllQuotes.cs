@@ -40,9 +40,19 @@ namespace MegaDesk_Bustillos
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
-            MainMenu MenuFrm = new MainMenu();
+            SearchQuotes MenuFrm = new SearchQuotes();
             MenuFrm.Show();
             this.Hide();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

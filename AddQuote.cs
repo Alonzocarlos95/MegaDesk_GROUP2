@@ -136,7 +136,7 @@ namespace MegaDesk_Bustillos
             }
             catch (Exception)
             {
-                MessageBox.Show("Your number is not an integer", "MegaDesk");
+                MessageBox.Show("Your number is not an integer", "MegaDesk App");
                 DepthInput.Text = "";
                 DepthInput.Focus();
             }
@@ -147,32 +147,32 @@ namespace MegaDesk_Bustillos
             bool EmptyFields = true;
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Please insert the name", "MegaDesk");
+                MessageBox.Show("Please insert the Name of the Customer", "MegaDesk App");
                 textBox1.Focus();
                 EmptyFields = false;
             } else if (widthInput.Text == "")
             {
-                MessageBox.Show("Please insert the width", "MegaDesk");
+                MessageBox.Show("Please insert the Width", "MegaDesk App");
                 widthInput.Focus();
                 EmptyFields = false;
             } else if (DepthInput.Text == "")
             {
-                MessageBox.Show("Please insert the depth", "MegaDesk");
+                MessageBox.Show("Please insert the Depth", "MegaDesk App");
                 DepthInput.Focus();
                 EmptyFields = false;
             } else if (comboBox2.Text == "")
             {
-                MessageBox.Show("Please select the number of Drawers", "MegaDesk");
+                MessageBox.Show("Please select the Number of Drawers", "MegaDesk App");
                 comboBox2.Focus();
                 EmptyFields = false;
             } else if (comboBox1.Text == "")
             {
-                MessageBox.Show("Please select the surface Material", "MegaDesk");
+                MessageBox.Show("Please select the Surface Material", "MegaDesk App");
                 comboBox1.Focus();
                 EmptyFields = false;
             } else if (comboBox3.Text == "")
             {
-                MessageBox.Show("Please select the processing Time", "MegaDesk");
+                MessageBox.Show("Please select the Processing Time", "MegaDesk App");
                 comboBox3.Focus();
                 EmptyFields = false;
             }

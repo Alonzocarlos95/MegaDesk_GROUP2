@@ -32,6 +32,8 @@
             this.ReturnBtn = new System.Windows.Forms.Button();
             this.CustomerQuotes = new System.Windows.Forms.ListBox();
             this.materialTitle = new System.Windows.Forms.Label();
+            this.gridViewQuotes = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewQuotes)).BeginInit();
             this.SuspendLayout();
             // 
             // ReturnBtn
@@ -54,7 +56,7 @@
             this.CustomerQuotes.Location = new System.Drawing.Point(27, 42);
             this.CustomerQuotes.MultiColumn = true;
             this.CustomerQuotes.Name = "CustomerQuotes";
-            this.CustomerQuotes.Size = new System.Drawing.Size(629, 384);
+            this.CustomerQuotes.Size = new System.Drawing.Size(720, 384);
             this.CustomerQuotes.TabIndex = 2;
             this.CustomerQuotes.Tag = "Name";
             // 
@@ -62,18 +64,27 @@
             // 
             this.materialTitle.AutoSize = true;
             this.materialTitle.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialTitle.Location = new System.Drawing.Point(290, 9);
+            this.materialTitle.Location = new System.Drawing.Point(350, 9);
             this.materialTitle.Name = "materialTitle";
             this.materialTitle.Size = new System.Drawing.Size(80, 23);
             this.materialTitle.TabIndex = 3;
             this.materialTitle.Text = "Material";
+            // 
+            // gridViewQuotes
+            // 
+            this.gridViewQuotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewQuotes.Location = new System.Drawing.Point(27, 62);
+            this.gridViewQuotes.Name = "gridViewQuotes";
+            this.gridViewQuotes.Size = new System.Drawing.Size(720, 365);
+            this.gridViewQuotes.TabIndex = 4;
             // 
             // ViewAllQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(668, 487);
+            this.ClientSize = new System.Drawing.Size(780, 487);
+            this.Controls.Add(this.gridViewQuotes);
             this.Controls.Add(this.materialTitle);
             this.Controls.Add(this.CustomerQuotes);
             this.Controls.Add(this.ReturnBtn);
@@ -84,6 +95,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MegaDesk - View All Quotes";
             this.Load += new System.EventHandler(this.ViewAllQuotes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewQuotes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Button ReturnBtn;
         public System.Windows.Forms.ListBox CustomerQuotes;
         public System.Windows.Forms.Label materialTitle;
+        private System.Windows.Forms.DataGridView gridViewQuotes;
     }
 }

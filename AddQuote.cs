@@ -12,6 +12,7 @@ namespace MegaDesk_Bustillos
 {
     public partial class AddQuote : Form
     {
+        public String nombre;
         public int basePrice = 200;
         public int area;
         public int drawers;
@@ -24,16 +25,18 @@ namespace MegaDesk_Bustillos
         public AddQuote()
         {
             InitializeComponent();
-           
+
             List<DesktopMaterial> MaterialList = new List<DesktopMaterial>().ToList();
             //Adding to List
-           foreach (DesktopMaterial item in Enum.GetValues(typeof(DesktopMaterial)))
-               MaterialList.Add(item);
-               
+            foreach (DesktopMaterial item in Enum.GetValues(typeof(DesktopMaterial)))
+                MaterialList.Add(item);
+
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
-            
+
         }
 
+       
+           
         // Date
 
         
@@ -52,7 +55,7 @@ namespace MegaDesk_Bustillos
         private void AddQuote_Load(object sender, EventArgs e)
         {
            
-        }
+    }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
@@ -144,6 +147,7 @@ namespace MegaDesk_Bustillos
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            Program.cont++;
             bool EmptyFields = true;
             if (textBox1.Text == "")
             {
@@ -223,46 +227,85 @@ namespace MegaDesk_Bustillos
                 switch (comboBox1.Text)
                 {
                     case "Laminate":
-                        Program.Laminate.Add("Name Customer: " + textBox1.Text);
-                        Program.Laminate.Add("Width: " + widthInput.Text);
-                        Program.Laminate.Add("Depth: " + DepthInput.Text);
-                        Program.Laminate.Add("Drawers: " + comboBox2.Text);
-                        Program.Laminate.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Laminate.Add("Price Quote: " + results);
+                        Program.Laminate.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Laminate.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Laminate.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Laminate.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.Laminate.Add(comboBox2.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Laminate.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Laminate.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
                         break;
 
                     case "Oak":
 
-                        Program.Oak.Add("Name Customer: " + textBox1.Text);
-                        Program.Oak.Add("Width: " + widthInput.Text);
-                        Program.Oak.Add("Depth: " + DepthInput.Text);
-                        Program.Oak.Add("Drawers: " + comboBox2.Text);
-                        Program.Oak.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Oak.Add("Price Quote: " + results);
+                        Program.Oak.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Oak.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Oak.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Oak.Add(comboBox2.Text);
+                        Program.Oak.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Oak.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Oak.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
                         break;
                     case "Rosewood":
-                        Program.Rosewood.Add("Name Customer: " + textBox1.Text);
-                        Program.Rosewood.Add("Width: " + widthInput.Text);
-                        Program.Rosewood.Add("Depth: " + DepthInput.Text);
-                        Program.Rosewood.Add("Drawers: " + comboBox2.Text);
-                        Program.Rosewood.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Rosewood.Add("Price Quote: " + results);
+                        Program.Rosewood.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Rosewood.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Rosewood.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Rosewood.Add(comboBox2.Text);
+                        Program.Rosewood.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Rosewood.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Rosewood.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
                         break;
                     case "Venner":
-                        Program.Venner.Add("Name Customer: " + textBox1.Text);
-                        Program.Venner.Add("Width: " + widthInput.Text);
-                        Program.Venner.Add("Depth: " + DepthInput.Text);
-                        Program.Venner.Add("Drawers: " + comboBox2.Text);
-                        Program.Venner.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Venner.Add("Price Quote: " + results);
+                        Program.Venner.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Venner.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Venner.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Venner.Add(comboBox2.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Venner.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Venner.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
                         break;
                     case "Pine":
-                        Program.Pine.Add("Name Customer: " + textBox1.Text);
-                        Program.Pine.Add("Width: " + widthInput.Text);
-                        Program.Pine.Add("Depth: " + DepthInput.Text);
-                        Program.Pine.Add("Drawers: " + comboBox2.Text);
-                        Program.Pine.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Pine.Add("Price Quote: " + results);
+                        Program.Pine.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Pine.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Pine.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Pine.Add(comboBox2.Text);
+                        Program.Pine.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Pine.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Pine.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
                         break;
                     default:
 

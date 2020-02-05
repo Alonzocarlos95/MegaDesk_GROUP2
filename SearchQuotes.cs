@@ -12,7 +12,7 @@ namespace MegaDesk_Bustillos
 {
     public partial class SearchQuotes : Form
     {
-        
+        public int area, drawers;
         public SearchQuotes()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace MegaDesk_Bustillos
             {
                 case "Laminate":
                     Search.materialTitle.Text = "LAMINATE";
-                    foreach (string item in Program.Laminate)
+                    foreach (var item in Program.Laminate)
                        Search.CustomerQuotes.Items.Add(item);
                                   
                     break;

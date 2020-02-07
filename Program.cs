@@ -26,6 +26,13 @@ namespace MegaDesk_Bustillos
         public static int drawers = 9;
         public static int cont = 0;
         public static int i = 0;
+        public static int flag = 0;
+        public static int laminateFlag = 0;
+        public static int oakFlag = 0;
+        public static int rosewoodFlag = 0;
+        public static int vennerFlag = 0;
+        public static int pineFlag = 0;
+
 
 
 

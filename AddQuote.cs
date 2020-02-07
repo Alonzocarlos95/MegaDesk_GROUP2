@@ -22,6 +22,7 @@ namespace MegaDesk_Bustillos
         public int drawersNumber;
         public double results;
         public int orderRush;
+        public int buttonAlert = 0;
         public AddQuote()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace MegaDesk_Bustillos
                 MaterialList.Add(item);
 
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
-
+            
         }
 
        
@@ -54,11 +55,13 @@ namespace MegaDesk_Bustillos
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
-           
-    }
+            //AddBtn.Enabled = false;
+        }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
+           
+
             MainMenu MenuFrm = new MainMenu();
             MenuFrm.Show();
            
@@ -147,37 +150,53 @@ namespace MegaDesk_Bustillos
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            
+            Program.flag++;
+            
             Program.cont++;
             bool EmptyFields = true;
             if (textBox1.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please insert the Name of the Customer", "MegaDesk App");
                 textBox1.Focus();
+                
                 EmptyFields = false;
             } else if (widthInput.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please insert the Width", "MegaDesk App");
                 widthInput.Focus();
+                
                 EmptyFields = false;
             } else if (DepthInput.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please insert the Depth", "MegaDesk App");
                 DepthInput.Focus();
+                
                 EmptyFields = false;
+
             } else if (comboBox2.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please select the Number of Drawers", "MegaDesk App");
                 comboBox2.Focus();
+                
                 EmptyFields = false;
             } else if (comboBox1.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please select the Surface Material", "MegaDesk App");
                 comboBox1.Focus();
+                
                 EmptyFields = false;
             } else if (comboBox3.Text == "")
             {
+                buttonAlert++;
                 MessageBox.Show("Please select the Processing Time", "MegaDesk App");
                 comboBox3.Focus();
+                
                 EmptyFields = false;
             }
 
@@ -227,24 +246,32 @@ namespace MegaDesk_Bustillos
                 switch (comboBox1.Text)
                 {
                     case "Laminate":
+
+                        Program.laminateFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Laminate.Add(dateLabel.Text);
                         Program.Laminate.Add(textBox1.Text);
                         Program.AllQuotes.Add(textBox1.Text);
                         Program.Laminate.Add(widthInput.Text);
                         Program.AllQuotes.Add(widthInput.Text);
                         Program.Laminate.Add(DepthInput.Text);
                         Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Laminate.Add(comboBox2.Text);
                         Program.Laminate.Add(comboBox1.Text);
                         Program.AllQuotes.Add(comboBox1.Text);
-                        Program.Laminate.Add(comboBox2.Text);
                         Program.AllQuotes.Add(comboBox2.Text);
                         Program.Laminate.Add(comboBox3.Text);
                         Program.AllQuotes.Add(comboBox3.Text);
                         Program.Laminate.Add(results.ToString());
                         Program.AllQuotes.Add(results.ToString());
+                        
                         break;
 
                     case "Oak":
 
+                        Program.oakFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Oak.Add(dateLabel.Text);
                         Program.Oak.Add(textBox1.Text);
                         Program.AllQuotes.Add(textBox1.Text);
                         Program.Oak.Add(widthInput.Text);
@@ -259,8 +286,12 @@ namespace MegaDesk_Bustillos
                         Program.AllQuotes.Add(comboBox3.Text);
                         Program.Oak.Add(results.ToString());
                         Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Rosewood":
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Rosewood.Add(dateLabel.Text);
+                        Program.rosewoodFlag++;
                         Program.Rosewood.Add(textBox1.Text);
                         Program.AllQuotes.Add(textBox1.Text);
                         Program.Rosewood.Add(widthInput.Text);
@@ -275,8 +306,12 @@ namespace MegaDesk_Bustillos
                         Program.AllQuotes.Add(comboBox3.Text);
                         Program.Rosewood.Add(results.ToString());
                         Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Venner":
+                        Program.vennerFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Venner.Add(dateLabel.Text);
                         Program.Venner.Add(textBox1.Text);
                         Program.AllQuotes.Add(textBox1.Text);
                         Program.Venner.Add(widthInput.Text);
@@ -284,14 +319,19 @@ namespace MegaDesk_Bustillos
                         Program.Venner.Add(DepthInput.Text);
                         Program.AllQuotes.Add(DepthInput.Text);
                         Program.Venner.Add(comboBox2.Text);
+                        Program.Venner.Add(comboBox1.Text);
                         Program.AllQuotes.Add(comboBox1.Text);
                         Program.AllQuotes.Add(comboBox2.Text);
                         Program.Venner.Add(comboBox3.Text);
                         Program.AllQuotes.Add(comboBox3.Text);
                         Program.Venner.Add(results.ToString());
                         Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Pine":
+                        Program.pineFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Pine.Add(dateLabel.Text);
                         Program.Pine.Add(textBox1.Text);
                         Program.AllQuotes.Add(textBox1.Text);
                         Program.Pine.Add(widthInput.Text);
@@ -306,6 +346,7 @@ namespace MegaDesk_Bustillos
                         Program.AllQuotes.Add(comboBox3.Text);
                         Program.Pine.Add(results.ToString());
                         Program.AllQuotes.Add(results.ToString());
+                       
                         break;
                     default:
 
@@ -316,10 +357,15 @@ namespace MegaDesk_Bustillos
                 textBox1.Text = "";
                 widthInput.Text = "";
                 DepthInput.Text = "";
+                
                 comboBox2.Text = "";
                 comboBox3.Text = "";
-                Adding.Show();
-                Adding.Hide();
+                if (buttonAlert == 0)
+                {
+                    AddBtn.Enabled = true;
+                    Adding.Show();
+                    Adding.Hide();
+                }
             }
             
         }
@@ -327,6 +373,17 @@ namespace MegaDesk_Bustillos
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //DateTime dateQuote = new DateTime();
+            dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
     }
 }

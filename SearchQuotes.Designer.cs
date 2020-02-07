@@ -38,27 +38,28 @@
             // 
             this.ReturnBtn.BackColor = System.Drawing.Color.Yellow;
             this.ReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ReturnBtn.Location = new System.Drawing.Point(12, 273);
+            this.ReturnBtn.Location = new System.Drawing.Point(299, 75);
             this.ReturnBtn.Name = "ReturnBtn";
             this.ReturnBtn.Size = new System.Drawing.Size(106, 38);
             this.ReturnBtn.TabIndex = 1;
-            this.ReturnBtn.Text = "Return";
+            this.ReturnBtn.Text = "Menu";
             this.ReturnBtn.UseVisualStyleBackColor = false;
             this.ReturnBtn.Click += new System.EventHandler(this.ReturnBtn_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(47, 36);
+            this.comboBox1.Location = new System.Drawing.Point(29, 43);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(175, 26);
             this.comboBox1.TabIndex = 2;
             // 
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.Yellow;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSearch.Location = new System.Drawing.Point(209, 26);
+            this.buttonSearch.Location = new System.Drawing.Point(299, 31);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(106, 38);
             this.buttonSearch.TabIndex = 3;
@@ -71,7 +72,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(417, 323);
+            this.ClientSize = new System.Drawing.Size(417, 202);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ReturnBtn);

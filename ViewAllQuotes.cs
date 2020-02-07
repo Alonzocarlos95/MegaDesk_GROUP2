@@ -34,9 +34,12 @@ namespace MegaDesk_Bustillos
             }
         }
 
+       
+
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
             DataTable TableQuotes = new DataTable();
+            TableQuotes.Columns.Add("Date", Type.GetType("System.String"));
             TableQuotes.Columns.Add("Name", Type.GetType("System.String"));
             TableQuotes.Columns.Add("Width", Type.GetType("System.String"));
             TableQuotes.Columns.Add("Depth", Type.GetType("System.String"));
@@ -44,24 +47,26 @@ namespace MegaDesk_Bustillos
             TableQuotes.Columns.Add("Drawers", Type.GetType("System.String"));
             TableQuotes.Columns.Add("Order Time", Type.GetType("System.String"));
             TableQuotes.Columns.Add("Price", Type.GetType("System.String"));
-
+            
+            
                 // Enter n rows
-                for (int j =0; j < Program.cont; j++)
+                for (int j = 0; j < Program.cont; j++)
                 {
-                    
+
                     TableQuotes.Rows.Add(new Object[] {Program.AllQuotes[contador],
 
                      Program.AllQuotes[contador+1], Program.AllQuotes[contador+2], Program.AllQuotes[contador+3],
-                     Program.AllQuotes[contador+4], Program.AllQuotes[contador+5], 
-                     Program.AllQuotes[contador+6]});
+                     Program.AllQuotes[contador+4], Program.AllQuotes[contador+5],
+                     Program.AllQuotes[contador+6], Program.AllQuotes[contador + 7]});
 
-                contador += 7;
-                    
+                    contador += 8;
+
                 }
-                      
-            gridViewQuotes.DataSource = TableQuotes;
 
-           
+                gridViewQuotes.DataSource = TableQuotes;
+
+                gridViewQuotes.Columns[1].Width = 150;
+
 
 
 
@@ -87,6 +92,13 @@ namespace MegaDesk_Bustillos
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            this.Hide();
         }
     }
 }

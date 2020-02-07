@@ -33,14 +33,18 @@ namespace MegaDesk_Bustillos
                 MaterialList.Add(item);
 
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
+
+            
+
+
             
         }
 
        
-           
+
         // Date
 
-        
+
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -53,9 +57,11 @@ namespace MegaDesk_Bustillos
             }
         }
 
+        
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            //AddBtn.Enabled = false;
+            
+            
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
@@ -68,6 +74,9 @@ namespace MegaDesk_Bustillos
             this.Hide();
         }
 
+        
+        
+        
         static bool isNumber(string s)
         {
             for (int i = 0; i < s.Length; i++)
@@ -78,7 +87,7 @@ namespace MegaDesk_Bustillos
         }
         private void WidthValidate(object sender, CancelEventArgs e)
         {
-
+            
             int width;
             
             try
@@ -109,6 +118,7 @@ namespace MegaDesk_Bustillos
 
         private void IsInteger_KeyPress(object sender, KeyPressEventArgs e)
         {
+           
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
         (e.KeyChar != '.'))
             {
@@ -150,28 +160,27 @@ namespace MegaDesk_Bustillos
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            
-            Program.flag++;
-            
-            Program.cont++;
-            bool EmptyFields = true;
+            bool EmptyFields;
+
+
             if (textBox1.Text == "")
             {
-                buttonAlert++;
+                
+               
                 MessageBox.Show("Please insert the Name of the Customer", "MegaDesk App");
                 textBox1.Focus();
                 
                 EmptyFields = false;
             } else if (widthInput.Text == "")
             {
-                buttonAlert++;
+                
                 MessageBox.Show("Please insert the Width", "MegaDesk App");
                 widthInput.Focus();
                 
                 EmptyFields = false;
             } else if (DepthInput.Text == "")
             {
-                buttonAlert++;
+                
                 MessageBox.Show("Please insert the Depth", "MegaDesk App");
                 DepthInput.Focus();
                 
@@ -198,7 +207,13 @@ namespace MegaDesk_Bustillos
                 comboBox3.Focus();
                 
                 EmptyFields = false;
+            } else
+            {
+                Program.flag++;
+                Program.cont++;
+                EmptyFields = true;
             }
+                
 
             if (EmptyFields == true)
             {
@@ -385,5 +400,26 @@ namespace MegaDesk_Bustillos
             //DateTime dateQuote = new DateTime();
             dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
+
+        private void validateIKey(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void formInput(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void validation(object sender, EventArgs e)
+        {
+            if (textBox1.Text != String.Empty && widthInput.Text != String.Empty && DepthInput.Text != String.Empty)
+            {
+                //Significa que hay texto en tus 3 txt
+                AddBtn.Enabled = true; //activas tu boton
+            }
+        }
+
+       
     }
 }

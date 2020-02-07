@@ -79,6 +79,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(226, 26);
             this.textBox1.TabIndex = 1;
+            //this.textBox1.TextChanged += new System.EventHandler(this.Text);
+            this.textBox1.Leave += new System.EventHandler(this.validation);
             // 
             // widthInput
             // 
@@ -210,6 +212,7 @@
             this.AddBtn.Text = "&Add";
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            this.AddBtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validateIKey);
             // 
             // dateLabel
             // 
@@ -254,8 +257,9 @@
             this.MaximizeBox = false;
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MegaDesk - Add Quote";
+            //this.Text = "MegaDesk - Add Quote";
             this.Load += new System.EventHandler(this.AddQuote_Load);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.formInput);
             this.ResumeLayout(false);
             this.PerformLayout();
 

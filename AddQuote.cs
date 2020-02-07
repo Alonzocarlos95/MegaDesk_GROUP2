@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,8 +61,39 @@ namespace MegaDesk_Bustillos
         
         private void AddQuote_Load(object sender, EventArgs e)
         {
-            
-            
+            int X = 3;
+            int[,] RushOrderPrices = new int[X, X];
+            string[] lines = File.ReadAllLines("rushOrderPrices.txt");
+            int RushTotalLines = lines.Length;
+            int MaxSizeInTheArray = X - 1;
+            int firstLine = 0;
+            int SecondLine = 0;
+            int ThirdLine = 0;
+            int LinesControl = 0;
+            while (LinesControl < RushTotalLines)
+            {
+                while (firstLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[0, firstLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    firstLine++;
+                }
+                while (SecondLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[1, SecondLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    SecondLine++;
+                }
+                while (ThirdLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[1, ThirdLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    ThirdLine++;
+                }
+
+            }
+            //Esta es una prueba para cargar no mas usar este codigo para la formula
+            MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)

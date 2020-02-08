@@ -13,9 +13,10 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Bustillos
 {
-    
+       
     public partial class AddQuote : Form
     {
+        List<string> outputS = new List<string>();
         public string outputString;
         public string nombre;
         public int basePrice = 200;
@@ -481,22 +482,22 @@ namespace MegaDesk_Bustillos
             string outputJSON = ser.Serialize(Program.AllQuotes);
             File.WriteAllText("quotes.json", outputJSON);
            
-            //string jsonFile = File.ReadAllText("quotes.json");
-            //string outputString = ser.Deserialize(outputJSON);
+            string jsonFile = File.ReadAllText("quotes.json");
+            List<string> outputString = ser.Deserialize<List<string>>(outputJSON);
             //AddQuote deserializedProduct = JsonConvert.DeserializeObject<AddQuote>(outputJSON);
-            //string path1 = @"c:\quotes.json";
-            /* using (StreamReader jsonStream = File.OpenText(path))
+            string path = @"c:\quotes.json";
+            using (StreamReader jsonStream = File.OpenText(path))
              {
                  var jSON = jsonStream.ReadToEnd();
-                  outputString = JsonConvert.DeserializeObject<string>(jSON);
+                  outputS = JsonConvert.DeserializeObject<List<string>>(jSON);
              }
 
-             foreach(int i in outputString)
+            /* foreach(var i in outputS)
              {
-                 MessageBox.Show("dato: " + outputString[i]);
+                 MessageBox.Show("dato: " + i);
              }
-             */
-
+             
+    */
 
         }
 

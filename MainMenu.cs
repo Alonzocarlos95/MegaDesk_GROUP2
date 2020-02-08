@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace MegaDesk_Bustillos
 {
     public partial class MainMenu : Form
@@ -21,7 +21,25 @@ namespace MegaDesk_Bustillos
         
         private void MainMenu_Load(object sender, EventArgs e)
         {
-           
+            string path = @"rushOrderPrices.txt";
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine("60");
+                    sw.WriteLine("70");
+                    sw.WriteLine("80");
+                    sw.WriteLine("40");
+                    sw.WriteLine("50");
+                    sw.WriteLine("60");
+                    sw.WriteLine("30");
+                    sw.WriteLine("35");
+                    sw.WriteLine("40");
+
+                }
+            }
+
         }
 
         // DISABLE X BUTTON

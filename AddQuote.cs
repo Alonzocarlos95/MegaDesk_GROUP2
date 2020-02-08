@@ -59,9 +59,11 @@ namespace MegaDesk_Bustillos
         }
 
         
-        private void AddQuote_Load(object sender, EventArgs e)
+        public void AddQuote_Load(object sender, EventArgs e)
         {
-            int X = 3;
+            DeskQuote Array = new DeskQuote();
+            Array.GetRushOrder();
+            /* int X = 3;
             int[,] RushOrderPrices = new int[X, X];
             string[] lines = File.ReadAllLines("rushOrderPrices.txt");
             int RushTotalLines = lines.Length;
@@ -91,9 +93,9 @@ namespace MegaDesk_Bustillos
                     ThirdLine++;
                 }
 
-            }
+            }*/
             //Esta es una prueba para cargar no mas usar este codigo para la formula
-            MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
+           // MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
@@ -252,9 +254,11 @@ namespace MegaDesk_Bustillos
                 // Calculate
                 widthNumber = Int32.Parse(widthInput.Text);
                 depthNumber = Int32.Parse(DepthInput.Text);
-                area = widthNumber * depthNumber; // $1 the price per in2
+                area = widthNumber * depthNumber; // $1 per in2
+                
                 drawersNumber = Int32.Parse(comboBox2.Text);
                 drawers = drawersNumber * 50;
+                
                 if (comboBox1.Text == "Laminate")
                     materials = 100;
                 else if (comboBox1.Text == "Oak")
@@ -267,26 +271,28 @@ namespace MegaDesk_Bustillos
                     materials = 125;
 
                 if (comboBox3.Text == "3" && area < 1000)
-                    orderRush = 60;
+                    orderRush = Program.RushOrderPrices[0, 0];
+                 
                 else if (comboBox3.Text == "5" && area < 1000)
-                    orderRush = 40;
+                    orderRush = Program.RushOrderPrices[1, 0];
                 else if (comboBox3.Text == "7" && area < 1000)
-                    orderRush = 30;
+                    orderRush = Program.RushOrderPrices[2, 0];
 
                 if (comboBox3.Text == "3" && (area >= 1000 && area <= 2000))
-                    orderRush = 70;
+                    orderRush = Program.RushOrderPrices[0, 1];
                 else if (comboBox3.Text == "5" && (area >= 1000 && area <= 2000))
-                    orderRush = 50;
+                    orderRush = Program.RushOrderPrices[1, 1];
                 else if (comboBox3.Text == "7" && (area >= 1000 && area <= 2000))
-                    orderRush = 35;
+                    orderRush = Program.RushOrderPrices[2, 1];
 
                 if (comboBox3.Text == "3" && area > 2000)
-                    orderRush = 80;
+                    orderRush = Program.RushOrderPrices[0, 2];
                 else if (comboBox3.Text == "5" && area > 2000)
-                    orderRush = 60;
+                    orderRush = Program.RushOrderPrices[1, 2];
                 else if (comboBox3.Text == "7" && area > 2000)
-                    orderRush = 40;
-
+                    orderRush = Program.RushOrderPrices[2, 2];
+                
+                    
 
 
                 results = basePrice + area + drawers + materials + orderRush;

@@ -79,7 +79,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(226, 26);
             this.textBox1.TabIndex = 1;
-            //this.textBox1.TextChanged += new System.EventHandler(this.Text);
             this.textBox1.Leave += new System.EventHandler(this.validation);
             // 
             // widthInput
@@ -183,8 +182,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "3",
             "5",
-            "7",
-            "15"});
+            "7"});
             this.comboBox3.Location = new System.Drawing.Point(18, 212);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(225, 28);
@@ -257,7 +255,6 @@
             this.MaximizeBox = false;
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            //this.Text = "MegaDesk - Add Quote";
             this.Load += new System.EventHandler(this.AddQuote_Load);
             this.Validating += new System.ComponentModel.CancelEventHandler(this.formInput);
             this.ResumeLayout(false);

@@ -21,7 +21,7 @@ namespace MegaDesk_Bustillos
         public static List<string> Venner = new List<string>();
         public static List<string> Pine = new List<string>();
         public static List<string> AllQuotes = new List<String>();
-
+        public static int x = 3;
         public static int area = 7;
         public static int drawers = 9;
         public static int cont = 0;
@@ -32,7 +32,7 @@ namespace MegaDesk_Bustillos
         public static int rosewoodFlag = 0;
         public static int vennerFlag = 0;
         public static int pineFlag = 0;
-
+        public static int[,] RushOrderPrices = new int[x, x];
 
 
 

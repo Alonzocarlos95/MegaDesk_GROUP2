@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddQuote));
             this.ReturnBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +44,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.AddBtn = new System.Windows.Forms.Button();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // ReturnBtn
@@ -74,8 +77,9 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(17, 38);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(493, 26);
+            this.textBox1.Size = new System.Drawing.Size(226, 26);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Leave += new System.EventHandler(this.validation);
             // 
             // widthInput
             // 
@@ -178,8 +182,7 @@
             this.comboBox3.Items.AddRange(new object[] {
             "3",
             "5",
-            "7",
-            "15"});
+            "7"});
             this.comboBox3.Location = new System.Drawing.Point(18, 212);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(225, 28);
@@ -207,6 +210,24 @@
             this.AddBtn.Text = "&Add";
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            this.AddBtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validateIKey);
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.ForeColor = System.Drawing.Color.White;
+            this.dateLabel.Location = new System.Drawing.Point(332, 13);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(136, 29);
+            this.dateLabel.TabIndex = 13;
+            this.dateLabel.Text = "Date Quote";
+            this.dateLabel.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AddQuote
             // 
@@ -214,6 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(538, 261);
+            this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label6);
@@ -233,8 +255,8 @@
             this.MaximizeBox = false;
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MegaDesk - Add Quote";
             this.Load += new System.EventHandler(this.AddQuote_Load);
+            this.Validating += new System.ComponentModel.CancelEventHandler(this.formInput);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,11 +272,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

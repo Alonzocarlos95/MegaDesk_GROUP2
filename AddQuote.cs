@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace MegaDesk_Bustillos
 {
     public partial class AddQuote : Form
     {
+        public String nombre;
         public int basePrice = 200;
         public int area;
         public int drawers;
@@ -21,22 +23,29 @@ namespace MegaDesk_Bustillos
         public int drawersNumber;
         public double results;
         public int orderRush;
+        public int buttonAlert = 0;
         public AddQuote()
         {
             InitializeComponent();
-           
+
             List<DesktopMaterial> MaterialList = new List<DesktopMaterial>().ToList();
             //Adding to List
-           foreach (DesktopMaterial item in Enum.GetValues(typeof(DesktopMaterial)))
-               MaterialList.Add(item);
-               
+            foreach (DesktopMaterial item in Enum.GetValues(typeof(DesktopMaterial)))
+                MaterialList.Add(item);
+
             comboBox1.DataSource = MaterialList;  // Add the List to Desk Surface Material Box
+
+            
+
+
             
         }
 
+       
+
         // Date
 
-        
+
         // DISABLE X BUTTON
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -49,19 +58,59 @@ namespace MegaDesk_Bustillos
             }
         }
 
-        private void AddQuote_Load(object sender, EventArgs e)
+        
+        public void AddQuote_Load(object sender, EventArgs e)
         {
-           
+            DeskQuote Array = new DeskQuote();
+            Array.GetRushOrder();
+            /* int X = 3;
+            int[,] RushOrderPrices = new int[X, X];
+            string[] lines = File.ReadAllLines("rushOrderPrices.txt");
+            int RushTotalLines = lines.Length;
+            int MaxSizeInTheArray = X - 1;
+            int firstLine = 0;
+            int SecondLine = 0;
+            int ThirdLine = 0;
+            int LinesControl = 0;
+            while (LinesControl < RushTotalLines)
+            {
+                while (firstLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[0, firstLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    firstLine++;
+                }
+                while (SecondLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[1, SecondLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    SecondLine++;
+                }
+                while (ThirdLine <= MaxSizeInTheArray)
+                {
+                    RushOrderPrices[1, ThirdLine] = System.Convert.ToInt32(lines[LinesControl]);
+                    LinesControl++;
+                    ThirdLine++;
+                }
+
+            }*/
+            //Esta es una prueba para cargar no mas usar este codigo para la formula
+           // MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
+           
+
             MainMenu MenuFrm = new MainMenu();
             MenuFrm.Show();
            
             this.Hide();
         }
 
+        
+        
+        
         static bool isNumber(string s)
         {
             for (int i = 0; i < s.Length; i++)
@@ -72,7 +121,7 @@ namespace MegaDesk_Bustillos
         }
         private void WidthValidate(object sender, CancelEventArgs e)
         {
-
+            
             int width;
             
             try
@@ -103,6 +152,7 @@ namespace MegaDesk_Bustillos
 
         private void IsInteger_KeyPress(object sender, KeyPressEventArgs e)
         {
+           
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
         (e.KeyChar != '.'))
             {
@@ -136,7 +186,7 @@ namespace MegaDesk_Bustillos
             }
             catch (Exception)
             {
-                MessageBox.Show("Your number is not an integer", "MegaDesk");
+                MessageBox.Show("Your number is not an integer", "MegaDesk App");
                 DepthInput.Text = "";
                 DepthInput.Focus();
             }
@@ -144,47 +194,71 @@ namespace MegaDesk_Bustillos
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            bool EmptyFields = true;
+            bool EmptyFields;
+
+
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Please insert the name", "MegaDesk");
+                
+               
+                MessageBox.Show("Please insert the Name of the Customer", "MegaDesk App");
                 textBox1.Focus();
+                
                 EmptyFields = false;
             } else if (widthInput.Text == "")
             {
-                MessageBox.Show("Please insert the width", "MegaDesk");
+                
+                MessageBox.Show("Please insert the Width", "MegaDesk App");
                 widthInput.Focus();
+                
                 EmptyFields = false;
             } else if (DepthInput.Text == "")
             {
-                MessageBox.Show("Please insert the depth", "MegaDesk");
+                
+                MessageBox.Show("Please insert the Depth", "MegaDesk App");
                 DepthInput.Focus();
+                
                 EmptyFields = false;
+
             } else if (comboBox2.Text == "")
             {
-                MessageBox.Show("Please select the number of Drawers", "MegaDesk");
+                buttonAlert++;
+                MessageBox.Show("Please select the Number of Drawers", "MegaDesk App");
                 comboBox2.Focus();
+                
                 EmptyFields = false;
             } else if (comboBox1.Text == "")
             {
-                MessageBox.Show("Please select the surface Material", "MegaDesk");
+                buttonAlert++;
+                MessageBox.Show("Please select the Surface Material", "MegaDesk App");
                 comboBox1.Focus();
+                
                 EmptyFields = false;
             } else if (comboBox3.Text == "")
             {
-                MessageBox.Show("Please select the processing Time", "MegaDesk");
+                buttonAlert++;
+                MessageBox.Show("Please select the Processing Time", "MegaDesk App");
                 comboBox3.Focus();
+                
                 EmptyFields = false;
+            } else
+            {
+                Program.flag++;
+                Program.cont++;
+                EmptyFields = true;
             }
+                
 
             if (EmptyFields == true)
             {
                 // Calculate
                 widthNumber = Int32.Parse(widthInput.Text);
                 depthNumber = Int32.Parse(DepthInput.Text);
-                area = widthNumber * depthNumber; // $1 the price per in2
+                area = widthNumber * depthNumber; // $1 per in2
+                
                 drawersNumber = Int32.Parse(comboBox2.Text);
                 drawers = drawersNumber * 50;
+                
                 if (comboBox1.Text == "Laminate")
                     materials = 100;
                 else if (comboBox1.Text == "Oak")
@@ -197,72 +271,135 @@ namespace MegaDesk_Bustillos
                     materials = 125;
 
                 if (comboBox3.Text == "3" && area < 1000)
-                    orderRush = 60;
+                    orderRush = Program.RushOrderPrices[0, 0];
+                 
                 else if (comboBox3.Text == "5" && area < 1000)
-                    orderRush = 40;
+                    orderRush = Program.RushOrderPrices[1, 0];
                 else if (comboBox3.Text == "7" && area < 1000)
-                    orderRush = 30;
+                    orderRush = Program.RushOrderPrices[2, 0];
 
                 if (comboBox3.Text == "3" && (area >= 1000 && area <= 2000))
-                    orderRush = 70;
+                    orderRush = Program.RushOrderPrices[0, 1];
                 else if (comboBox3.Text == "5" && (area >= 1000 && area <= 2000))
-                    orderRush = 50;
+                    orderRush = Program.RushOrderPrices[1, 1];
                 else if (comboBox3.Text == "7" && (area >= 1000 && area <= 2000))
-                    orderRush = 35;
+                    orderRush = Program.RushOrderPrices[2, 1];
 
                 if (comboBox3.Text == "3" && area > 2000)
-                    orderRush = 80;
+                    orderRush = Program.RushOrderPrices[0, 2];
                 else if (comboBox3.Text == "5" && area > 2000)
-                    orderRush = 60;
+                    orderRush = Program.RushOrderPrices[1, 2];
                 else if (comboBox3.Text == "7" && area > 2000)
-                    orderRush = 40;
-
+                    orderRush = Program.RushOrderPrices[2, 2];
+                
+                    
 
 
                 results = basePrice + area + drawers + materials + orderRush;
                 switch (comboBox1.Text)
                 {
                     case "Laminate":
-                        Program.Laminate.Add("Name Customer: " + textBox1.Text);
-                        Program.Laminate.Add("Width: " + widthInput.Text);
-                        Program.Laminate.Add("Depth: " + DepthInput.Text);
-                        Program.Laminate.Add("Drawers: " + comboBox2.Text);
-                        Program.Laminate.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Laminate.Add("Price Quote: " + results);
+
+                        Program.laminateFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Laminate.Add(dateLabel.Text);
+                        Program.Laminate.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Laminate.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Laminate.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Laminate.Add(comboBox2.Text);
+                        Program.Laminate.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Laminate.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Laminate.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
+                        
                         break;
 
                     case "Oak":
 
-                        Program.Oak.Add("Name Customer: " + textBox1.Text);
-                        Program.Oak.Add("Width: " + widthInput.Text);
-                        Program.Oak.Add("Depth: " + DepthInput.Text);
-                        Program.Oak.Add("Drawers: " + comboBox2.Text);
-                        Program.Oak.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Oak.Add("Price Quote: " + results);
+                        Program.oakFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Oak.Add(dateLabel.Text);
+                        Program.Oak.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Oak.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Oak.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Oak.Add(comboBox2.Text);
+                        Program.Oak.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Oak.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Oak.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Rosewood":
-                        Program.Rosewood.Add("Name Customer: " + textBox1.Text);
-                        Program.Rosewood.Add("Width: " + widthInput.Text);
-                        Program.Rosewood.Add("Depth: " + DepthInput.Text);
-                        Program.Rosewood.Add("Drawers: " + comboBox2.Text);
-                        Program.Rosewood.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Rosewood.Add("Price Quote: " + results);
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Rosewood.Add(dateLabel.Text);
+                        Program.rosewoodFlag++;
+                        Program.Rosewood.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Rosewood.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Rosewood.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Rosewood.Add(comboBox2.Text);
+                        Program.Rosewood.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Rosewood.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Rosewood.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Venner":
-                        Program.Venner.Add("Name Customer: " + textBox1.Text);
-                        Program.Venner.Add("Width: " + widthInput.Text);
-                        Program.Venner.Add("Depth: " + DepthInput.Text);
-                        Program.Venner.Add("Drawers: " + comboBox2.Text);
-                        Program.Venner.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Venner.Add("Price Quote: " + results);
+                        Program.vennerFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Venner.Add(dateLabel.Text);
+                        Program.Venner.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Venner.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Venner.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Venner.Add(comboBox2.Text);
+                        Program.Venner.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Venner.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Venner.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
+                        
                         break;
                     case "Pine":
-                        Program.Pine.Add("Name Customer: " + textBox1.Text);
-                        Program.Pine.Add("Width: " + widthInput.Text);
-                        Program.Pine.Add("Depth: " + DepthInput.Text);
-                        Program.Pine.Add("Drawers: " + comboBox2.Text);
-                        Program.Pine.Add("Order Processing Days: " + comboBox3.Text);
-                        Program.Pine.Add("Price Quote: " + results);
+                        Program.pineFlag++;
+                        Program.AllQuotes.Add(dateLabel.Text);
+                        Program.Pine.Add(dateLabel.Text);
+                        Program.Pine.Add(textBox1.Text);
+                        Program.AllQuotes.Add(textBox1.Text);
+                        Program.Pine.Add(widthInput.Text);
+                        Program.AllQuotes.Add(widthInput.Text);
+                        Program.Pine.Add(DepthInput.Text);
+                        Program.AllQuotes.Add(DepthInput.Text);
+                        Program.Pine.Add(comboBox2.Text);
+                        Program.Pine.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox1.Text);
+                        Program.AllQuotes.Add(comboBox2.Text);
+                        Program.Pine.Add(comboBox3.Text);
+                        Program.AllQuotes.Add(comboBox3.Text);
+                        Program.Pine.Add(results.ToString());
+                        Program.AllQuotes.Add(results.ToString());
+                       
                         break;
                     default:
 
@@ -273,10 +410,15 @@ namespace MegaDesk_Bustillos
                 textBox1.Text = "";
                 widthInput.Text = "";
                 DepthInput.Text = "";
+                
                 comboBox2.Text = "";
                 comboBox3.Text = "";
-                Adding.Show();
-                Adding.Hide();
+                if (buttonAlert == 0)
+                {
+                    AddBtn.Enabled = true;
+                    Adding.Show();
+                    Adding.Hide();
+                }
             }
             
         }
@@ -285,5 +427,37 @@ namespace MegaDesk_Bustillos
         {
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //DateTime dateQuote = new DateTime();
+            dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
+        }
+
+        private void validateIKey(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void formInput(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void validation(object sender, EventArgs e)
+        {
+            if (textBox1.Text != String.Empty && widthInput.Text != String.Empty && DepthInput.Text != String.Empty)
+            {
+                //Significa que hay texto en tus 3 txt
+                AddBtn.Enabled = true; //activas tu boton
+            }
+        }
+
+       
     }
 }

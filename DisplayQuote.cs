@@ -78,20 +78,21 @@ namespace MegaDesk_Bustillos
         }
         private void DisplayQuote_Load(object sender, EventArgs e)
         {
-            //Get the current date
-            DateTime thisDate = DateTime.Today;
-            //Obtain the month number
-            int month = thisDate.Month;
-            // send it to the method in order to obtain the name
-            string monthName = getMonthName(month);
-            //Display on screen the text
-            label2.Text = "Order Date: " + thisDate.Day + " " + monthName + " " + thisDate.Year;
+           
+
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
         {
             MainMenu MenuFrm = new MainMenu();
             MenuFrm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SearchQuotes SearchQuote = new SearchQuotes();
+            SearchQuote.Show();
             this.Hide();
         }
     }

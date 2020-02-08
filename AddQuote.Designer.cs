@@ -50,8 +50,10 @@
             // 
             // ReturnBtn
             // 
-            this.ReturnBtn.BackColor = System.Drawing.Color.Yellow;
+            this.ReturnBtn.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.ReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ReturnBtn.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnBtn.ForeColor = System.Drawing.Color.GhostWhite;
             this.ReturnBtn.Location = new System.Drawing.Point(403, 202);
             this.ReturnBtn.Name = "ReturnBtn";
             this.ReturnBtn.Size = new System.Drawing.Size(106, 38);
@@ -201,8 +203,10 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.BackColor = System.Drawing.Color.Yellow;
+            this.AddBtn.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddBtn.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.GhostWhite;
             this.AddBtn.Location = new System.Drawing.Point(284, 202);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(106, 38);
@@ -233,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(538, 261);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.AddBtn);

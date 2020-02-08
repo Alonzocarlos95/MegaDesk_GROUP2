@@ -40,8 +40,10 @@
             // 
             // ANQbtn
             // 
-            this.ANQbtn.BackColor = System.Drawing.Color.Yellow;
+            this.ANQbtn.BackColor = System.Drawing.Color.GhostWhite;
             this.ANQbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ANQbtn.Font = new System.Drawing.Font("Candara", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ANQbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ANQbtn.Location = new System.Drawing.Point(12, 12);
             this.ANQbtn.Name = "ANQbtn";
             this.ANQbtn.Size = new System.Drawing.Size(133, 42);
@@ -52,8 +54,10 @@
             // 
             // VQbtn
             // 
-            this.VQbtn.BackColor = System.Drawing.Color.Yellow;
+            this.VQbtn.BackColor = System.Drawing.Color.GhostWhite;
             this.VQbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.VQbtn.Font = new System.Drawing.Font("Candara", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VQbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.VQbtn.Location = new System.Drawing.Point(12, 69);
             this.VQbtn.Name = "VQbtn";
             this.VQbtn.Size = new System.Drawing.Size(133, 42);
@@ -64,8 +68,10 @@
             // 
             // SQbtn
             // 
-            this.SQbtn.BackColor = System.Drawing.Color.Yellow;
+            this.SQbtn.BackColor = System.Drawing.Color.GhostWhite;
             this.SQbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SQbtn.Font = new System.Drawing.Font("Candara", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SQbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SQbtn.Location = new System.Drawing.Point(12, 126);
             this.SQbtn.Name = "SQbtn";
             this.SQbtn.Size = new System.Drawing.Size(133, 42);
@@ -76,8 +82,10 @@
             // 
             // Exitbtn
             // 
-            this.Exitbtn.BackColor = System.Drawing.Color.Yellow;
+            this.Exitbtn.BackColor = System.Drawing.Color.AliceBlue;
             this.Exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exitbtn.Font = new System.Drawing.Font("Candara", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Exitbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Exitbtn.Location = new System.Drawing.Point(12, 194);
             this.Exitbtn.Name = "Exitbtn";
             this.Exitbtn.Size = new System.Drawing.Size(133, 42);
@@ -101,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(427, 248);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Exitbtn);

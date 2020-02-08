@@ -21,6 +21,8 @@ namespace MegaDesk_Bustillos
         public static List<string> Venner = new List<string>();
         public static List<string> Pine = new List<string>();
         public static List<string> AllQuotes = new List<String>();
+       
+
         public static int x = 3;
         public static int area = 7;
         public static int drawers = 9;

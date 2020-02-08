@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
+
 namespace MegaDesk_Bustillos
 {
     public partial class MainMenu : Form
     {
-        
+        public string myJson;
         public MainMenu()
         {
             InitializeComponent();
@@ -36,6 +38,24 @@ namespace MegaDesk_Bustillos
                     sw.WriteLine("30");
                     sw.WriteLine("35");
                     sw.WriteLine("40");
+
+                }
+            }
+
+            // Json
+           
+            //var CopyList = Program.AllQuotes;
+
+            //var list = JsonConvert.DeserializeObject<List<object>>();
+            //list.Add(CopyList);
+
+            string JsPath = @"quotes.json";
+            if (!File.Exists(JsPath))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(JsPath))
+                {
+                    
 
                 }
             }

@@ -42,14 +42,9 @@ namespace MegaDesk_Bustillos
                 }
             }
 
-            // Json
+            // Json file created
            
-            //var CopyList = Program.AllQuotes;
-
-            //var list = JsonConvert.DeserializeObject<List<object>>();
-            //list.Add(CopyList);
-
-            string JsPath = @"quotes.json";
+           string JsPath = @"quotes.json";
             if (!File.Exists(JsPath))
             {
                 // Create a file to write to.
@@ -59,6 +54,7 @@ namespace MegaDesk_Bustillos
 
                 }
             }
+           
 
         }
 

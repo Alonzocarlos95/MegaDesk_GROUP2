@@ -116,41 +116,7 @@ namespace MegaDesk_Bustillos
         {
             DeskQuote Array = new DeskQuote();
             Array.GetRushOrder();
-            //AddQuote DateQ = new AddQuote();
             
-            /* int X = 3;
-            int[,] RushOrderPrices = new int[X, X];
-            string[] lines = File.ReadAllLines("rushOrderPrices.txt");
-            int RushTotalLines = lines.Length;
-            int MaxSizeInTheArray = X - 1;
-            int firstLine = 0;
-            int SecondLine = 0;
-            int ThirdLine = 0;
-            int LinesControl = 0;
-            while (LinesControl < RushTotalLines)
-            {
-                while (firstLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[0, firstLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    firstLine++;
-                }
-                while (SecondLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[1, SecondLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    SecondLine++;
-                }
-                while (ThirdLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[1, ThirdLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    ThirdLine++;
-                }
-
-            }*/
-            //Esta es una prueba para cargar no mas usar este codigo para la formula
-           // MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
@@ -479,25 +445,21 @@ namespace MegaDesk_Bustillos
             }
 
             JavaScriptSerializer ser = new JavaScriptSerializer();
+            
+            // Serialize 
             string outputJSON = ser.Serialize(Program.AllQuotes);
             File.WriteAllText("quotes.json", outputJSON);
+           // File.AppendText("quotes.json", outputJSON);
            
-            string jsonFile = File.ReadAllText("quotes.json");
+           
+            //Deserialize
+           
             List<string> outputString = ser.Deserialize<List<string>>(outputJSON);
-            //AddQuote deserializedProduct = JsonConvert.DeserializeObject<AddQuote>(outputJSON);
-            string path = @"c:\quotes.json";
-            using (StreamReader jsonStream = File.OpenText(path))
-             {
-                 var jSON = jsonStream.ReadToEnd();
-                  outputS = JsonConvert.DeserializeObject<List<string>>(jSON);
-             }
-
-            /* foreach(var i in outputS)
-             {
-                 MessageBox.Show("dato: " + i);
-             }
+           
+            
+            
              
-    */
+    
 
         }
 
@@ -513,8 +475,7 @@ namespace MegaDesk_Bustillos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //DateTime dateQuote = new DateTime();
-            //dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
+            
             //Get the current date
             DateTime thisDate = DateTime.Today;
             //Obtain the month number
@@ -539,7 +500,7 @@ namespace MegaDesk_Bustillos
         {
             if (textBox1.Text != String.Empty && widthInput.Text != String.Empty && DepthInput.Text != String.Empty)
             {
-                //Significa que hay texto en tus 3 txt
+                
                 AddBtn.Enabled = true; //activas tu boton
             }
         }

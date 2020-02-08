@@ -9,12 +9,10 @@ namespace MegaDesk_Bustillos
    
     static class Program
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
+        
         /// </summary>
         //public static class Globales
-        // {
-       // public static List<string> DeskCustomer = new List<string>();
+       
         public static List<string> Laminate = new List<string>();
         public static List<string> Oak = new List<string>();
         public static List<string> Rosewood = new List<string>();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +8,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace MegaDesk_Bustillos
 {
+       
     public partial class AddQuote : Form
     {
-        public String nombre;
+        List<string> outputS = new List<string>();
+        public string outputString;
+        public string nombre;
         public int basePrice = 200;
         public int area;
         public int drawers;
@@ -24,6 +29,10 @@ namespace MegaDesk_Bustillos
         public double results;
         public int orderRush;
         public int buttonAlert = 0;
+        public override string ToString()
+        {
+            return "hola";
+        }
         public AddQuote()
         {
             InitializeComponent();
@@ -58,44 +67,56 @@ namespace MegaDesk_Bustillos
             }
         }
 
-        
+
+        private String getMonthName(int month)
+        {
+            string monthName = "";
+            switch (month)
+            {
+                case 1:
+                    monthName = "January";
+                    break;
+                case 2:
+                    monthName = "February";
+                    break;
+                case 3:
+                    monthName = "March";
+                    break;
+                case 4:
+                    monthName = "April";
+                    break;
+                case 5:
+                    monthName = "May";
+                    break;
+                case 6:
+                    monthName = "June";
+                    break;
+                case 7:
+                    monthName = "July";
+                    break;
+                case 8:
+                    monthName = "August";
+                    break;
+                case 9:
+                    monthName = "September";
+                    break;
+                case 10:
+                    monthName = "October";
+                    break;
+                case 11:
+                    monthName = "November";
+                    break;
+                case 12:
+                    monthName = "December";
+                    break;
+            }
+            return monthName;
+        }
         public void AddQuote_Load(object sender, EventArgs e)
         {
             DeskQuote Array = new DeskQuote();
             Array.GetRushOrder();
-            /* int X = 3;
-            int[,] RushOrderPrices = new int[X, X];
-            string[] lines = File.ReadAllLines("rushOrderPrices.txt");
-            int RushTotalLines = lines.Length;
-            int MaxSizeInTheArray = X - 1;
-            int firstLine = 0;
-            int SecondLine = 0;
-            int ThirdLine = 0;
-            int LinesControl = 0;
-            while (LinesControl < RushTotalLines)
-            {
-                while (firstLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[0, firstLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    firstLine++;
-                }
-                while (SecondLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[1, SecondLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    SecondLine++;
-                }
-                while (ThirdLine <= MaxSizeInTheArray)
-                {
-                    RushOrderPrices[1, ThirdLine] = System.Convert.ToInt32(lines[LinesControl]);
-                    LinesControl++;
-                    ThirdLine++;
-                }
-
-            }*/
-            //Esta es una prueba para cargar no mas usar este codigo para la formula
-           // MessageBox.Show("Mijin el segundo precio en 3 Day /  greater than 2000: " + RushOrderPrices[0, 2], "MegaDesk");
+            
         }
 
         private void ReturnBtn_Click(object sender, EventArgs e)
@@ -196,7 +217,9 @@ namespace MegaDesk_Bustillos
         {
             bool EmptyFields;
 
-
+                  
+            
+            
             if (textBox1.Text == "")
             {
                 
@@ -420,7 +443,24 @@ namespace MegaDesk_Bustillos
                     Adding.Hide();
                 }
             }
+
+            JavaScriptSerializer ser = new JavaScriptSerializer();
             
+            // Serialize 
+            string outputJSON = ser.Serialize(Program.AllQuotes);
+            File.WriteAllText("quotes.json", outputJSON);
+           // File.AppendText("quotes.json", outputJSON);
+           
+           
+            //Deserialize
+           
+            List<string> outputString = ser.Deserialize<List<string>>(outputJSON);
+           
+            
+            
+             
+    
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -435,8 +475,15 @@ namespace MegaDesk_Bustillos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //DateTime dateQuote = new DateTime();
-            dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
+            
+            //Get the current date
+            DateTime thisDate = DateTime.Today;
+            //Obtain the month number
+            int month = thisDate.Month;
+            // send it to the method in order to obtain the name
+            string monthName = getMonthName(month);
+            //Display on screen the text
+            dateLabel.Text = thisDate.Day + " " + monthName + " " + thisDate.Year;
         }
 
         private void validateIKey(object sender, KeyPressEventArgs e)
@@ -453,7 +500,7 @@ namespace MegaDesk_Bustillos
         {
             if (textBox1.Text != String.Empty && widthInput.Text != String.Empty && DepthInput.Text != String.Empty)
             {
-                //Significa que hay texto en tus 3 txt
+                
                 AddBtn.Enabled = true; //activas tu boton
             }
         }

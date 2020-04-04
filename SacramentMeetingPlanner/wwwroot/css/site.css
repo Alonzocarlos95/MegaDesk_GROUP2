@@ -264,4 +264,31 @@ form .btn:hover {
   cursor: pointer;
 }
 
+.details-page {
+  text-align: center;
+  padding: 20px 0px;
+  width: 90%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.details-page dt {
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.17);
+}
+.details-page dt:nth-child(1) {
+  border-top: 1px solid #EBCFCB;
+  border-radius: 15px 15px 0px 0px;
+}
+.details-page dd:nth-last-child(1) {
+  border-radius: 0px 0px 15px 15px;
+}
+.details-page dt, .details-page dd {
+  padding: 10px;
+  border-bottom: 1px solid #EBCFCB;
+  border-left: 1px solid #EBCFCB;
+  border-right: 1px solid #EBCFCB;
+}
+
 /*# sourceMappingURL=site.css.map */

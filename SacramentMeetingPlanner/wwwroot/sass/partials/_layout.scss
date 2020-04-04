@@ -1,0 +1,109 @@
+header {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+
+    &,
+    * {
+        box-sizing: border-box;
+    }
+
+    .logo-container {
+        text-align: center;
+        padding: 10px 0px;
+        background: $color3;
+
+        a {
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: $color4;
+            transition: 1s;
+
+
+            &:hover {
+                color: $color5;
+            }
+
+        }
+    }
+
+    nav {
+        background: $color1;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+
+
+
+            li {
+                a {
+                    display: block;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    transition: 1s;
+                    color: black;
+                    border-left: 1px solid white;
+                    border-right: 1px solid white;
+
+                    @media (max-width: 700px) {
+                        span {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        background: $color5;
+                        color: white;
+                    }
+
+
+                }
+
+                &:first-child {
+                    a {
+                        border-left: 0px;
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        border-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    margin-top: 99px;
+    margin-bottom: 59px;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    background: $color4;
+    color: white;
+    padding: 20px 10px;
+    p {
+        text-align: center;
+        font-weight: bold;
+        a {
+            margin-left: 5px;
+            margin-right: 5px;
+            color: $color1;
+            transition: 1s;
+            &:hover {
+                color: $color3;
+            }
+        }
+    }
+}

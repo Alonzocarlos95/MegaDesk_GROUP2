@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model SacramentMeetingPlanner.Pages.meetings.DeleteModel
 
 @{
@@ -109,7 +109,7 @@
             @Html.DisplayFor(model => model.Meeting.LastPrayer)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Meeting.ID" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

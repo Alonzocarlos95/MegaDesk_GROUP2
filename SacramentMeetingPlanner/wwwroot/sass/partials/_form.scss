@@ -21,7 +21,7 @@ form {
         font-size: 18px;
         min-width: 240px;
         border-radius: 5px;
-        border: 1px solid $color1;
+        border: 1px solid $color5;
         margin-bottom: 15px;
         padding: 10px;
     }
@@ -30,12 +30,13 @@ form {
         text-transform: uppercase;
         border-radius: 10px;
         color: white;
-        background: $color3;
-        border: 1px solid $color3;
+        background: $color4;
+        border: 1px solid $color4;
         transition: 1s;
         &:hover {
-            background: $color2;
-            border: 1px solid $color2;
+            background: $color3;
+            color: black;
+            border: 1px solid $color3;
             cursor: pointer;
         }
     }

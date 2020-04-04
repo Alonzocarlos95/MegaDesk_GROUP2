@@ -19,6 +19,18 @@ header nav {
   font-family: "Gotu", sans-serif;
 }
 
+body {
+  min-width: 350px;
+}
+body a {
+  text-decoration: none;
+  color: #534343;
+  transition: 1s;
+}
+body a:hover {
+  color: #726463;
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -122,9 +134,14 @@ footer p a:hover {
 
 .table-container {
   overflow-x: hidden;
-  max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   box-sizing: border-box;
+}
+@media (min-height: 500px) {
+  .table-container {
+    max-height: 600px;
+    overflow-y: scroll;
+  }
 }
 @media (max-width: 1141px) {
   .table-container {
@@ -175,6 +192,10 @@ footer p a:hover {
   min-width: 300px;
   width: 300px;
 }
+.table-container table td:nth-child(4),
+.table-container table th:nth-child(4) {
+  min-width: 300px;
+}
 .table-container table thead tr {
   background: #534343;
   color: white;
@@ -203,7 +224,7 @@ form input, form select {
   font-size: 18px;
   min-width: 240px;
   border-radius: 5px;
-  border: 1px solid #F0EAEA;
+  border: 1px solid #726463;
   margin-bottom: 15px;
   padding: 10px;
 }
@@ -212,13 +233,34 @@ form .btn {
   text-transform: uppercase;
   border-radius: 10px;
   color: white;
-  background: #EBCFCB;
-  border: 1px solid #EBCFCB;
+  background: #534343;
+  border: 1px solid #534343;
   transition: 1s;
 }
 form .btn:hover {
-  background: #CAC1C2;
-  border: 1px solid #CAC1C2;
+  background: #EBCFCB;
+  color: black;
+  border: 1px solid #EBCFCB;
+  cursor: pointer;
+}
+
+.create-btn {
+  display: block;
+  width: 150px;
+  text-align: center;
+  padding: 15px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  color: white;
+  background: #534343;
+  border: 1px solid #534343;
+  transition: 1s;
+  margin-bottom: 15px;
+}
+.create-btn:hover {
+  background: #EBCFCB;
+  color: black;
+  border: 1px solid #EBCFCB;
   cursor: pointer;
 }
 

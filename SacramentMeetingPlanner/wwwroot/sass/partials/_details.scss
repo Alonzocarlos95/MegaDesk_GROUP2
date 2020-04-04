@@ -1,26 +1,36 @@
 .details-page {
-    text-align: center;
     padding: 20px 0px;
     width: 90%;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    dt {
+    display: flex;
+    flex-wrap: wrap;
+    &, * {
+        
+    box-sizing: border-box;
+    }
+    
+    
+    div:nth-of-type(odd) {
+        width: 30%;
         font-weight: bold;
-        text-transform: uppercase;
-        background: rgba(0, 0, 0, 0.17);
-        &:nth-child(1) {
-            border-top: 1px solid $color3;
-            border-radius: 15px 15px 0px 0px;
+        text-align: right;
+        @media (max-width: 640px) {
+            text-align: center;
+            width: 100%;
         }
     }
-    dd:nth-last-child(1) {
-        border-radius: 0px 0px 15px 15px;
+    div:nth-of-type(even) {
+        width: 70%;
+        @media (max-width: 640px) {
+            text-align: center;
+            width: 100%;
+        }
     }
-    dt, dd {
+    div {
         padding: 10px;
-        border-bottom: 1px solid $color3;
-        border-left: 1px solid $color3;
-        border-right: 1px solid $color3;
+        font-size: 18px;
+        
     }
 }

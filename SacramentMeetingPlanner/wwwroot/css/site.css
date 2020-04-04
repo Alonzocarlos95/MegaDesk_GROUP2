@@ -265,30 +265,51 @@ form .btn:hover {
 }
 
 .details-page {
-  text-align: center;
   padding: 20px 0px;
   width: 90%;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
-.details-page dt {
+.details-page, .details-page * {
+  box-sizing: border-box;
+}
+.details-page div:nth-of-type(odd) {
+  width: 30%;
   font-weight: bold;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.17);
+  text-align: right;
 }
-.details-page dt:nth-child(1) {
-  border-top: 1px solid #EBCFCB;
-  border-radius: 15px 15px 0px 0px;
+@media (max-width: 640px) {
+  .details-page div:nth-of-type(odd) {
+    text-align: center;
+    width: 100%;
+  }
 }
-.details-page dd:nth-last-child(1) {
-  border-radius: 0px 0px 15px 15px;
+.details-page div:nth-of-type(even) {
+  width: 70%;
 }
-.details-page dt, .details-page dd {
+@media (max-width: 640px) {
+  .details-page div:nth-of-type(even) {
+    text-align: center;
+    width: 100%;
+  }
+}
+.details-page div {
   padding: 10px;
-  border-bottom: 1px solid #EBCFCB;
-  border-left: 1px solid #EBCFCB;
-  border-right: 1px solid #EBCFCB;
+  font-size: 18px;
+}
+
+.privacy {
+  font-size: 20px;
+  padding: 20px 20px 20px 35px;
+}
+.privacy li {
+  padding-left: 25px;
+}
+.privacy li ul {
+  padding-left: 25px;
 }
 
 /*# sourceMappingURL=site.css.map */

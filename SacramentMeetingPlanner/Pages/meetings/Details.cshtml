@@ -6,7 +6,6 @@
 }
 
 <h1>Group # 2 Ward</h1>
-
 <div>
     <h4>Date: @Html.DisplayFor(model => model.Meeting.Date)</h4>
     <hr />
@@ -112,4 +111,7 @@
 <div class="tac pb15px">
     <a asp-page="./Edit" asp-route-id="@Model.Meeting.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
+    <form method="post" asp-page="Details" asp-page-handler="CreateDocument" style="margin-right:-30%">
+        <input type="submit" class="create-btn" value="Print this page">
+    </form>
 </div>

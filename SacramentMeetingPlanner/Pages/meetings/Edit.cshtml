@@ -8,6 +8,10 @@
 <h1>Edit</h1>
 
 <h4>Meeting</h4>
+<div>
+    <h4>Date: @Html.DisplayFor(model => model.Meeting.Date)</h4>
+    <hr />
+ </div>   
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -119,6 +123,11 @@
                 <label asp-for="Meeting.FirstMessagePerson" class="control-label"></label>
                 <input asp-for="Meeting.FirstMessagePerson" class="form-control" />
                 <span asp-validation-for="Meeting.FirstMessagePerson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Speakersubjects" class="control-label"></label>
+                <input asp-for="Meeting.Speakersubjects" class="form-control" />
+                <span asp-validation-for="Meeting.Speakersubjects" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Meeting.SecondMessagePerson" class="control-label"></label>

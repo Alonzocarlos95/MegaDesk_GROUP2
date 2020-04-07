@@ -38,7 +38,7 @@ namespace SacramentMeetingPlanner.Pages.meetings
 
             _context.Meeting.Add(Meeting);
             await _context.SaveChangesAsync();
-
+           
             return RedirectToPage("./Index");
         }
     }

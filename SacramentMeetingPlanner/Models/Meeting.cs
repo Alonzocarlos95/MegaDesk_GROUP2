@@ -10,13 +10,30 @@ namespace SacramentMeetingPlanner.Models
     public class Meeting
     {
         public int ID { get; set; }
+
+        [Display(Name = "Meeting Date")]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+        
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         public string Presiding { get; set; }
+        
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         public string Leading { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         public string Pianist { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         [Display(Name = "Music Director")]
         public string MusicDirector { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         [Display(Name = "Stake Authority")]
         public string StakeAuthority { get; set; }
         [Display(Name = "Announcement")]

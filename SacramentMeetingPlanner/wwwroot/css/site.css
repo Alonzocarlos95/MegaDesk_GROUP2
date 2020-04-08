@@ -311,5 +311,8 @@ form .btn:hover {
 .privacy li ul {
   padding-left: 25px;
 }
+.text-danger {
+    color: red;
+}
 
 /*# sourceMappingURL=site.css.map */

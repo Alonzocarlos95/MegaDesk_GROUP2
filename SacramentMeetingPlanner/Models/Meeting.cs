@@ -14,15 +14,17 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Meeting Date")]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
-        
+
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [Required]
         public string Presiding { get; set; }
-        
+
+        [StringLength(60, MinimumLength = 3)]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [Required]
         public string Leading { get; set; }
 
+        [StringLength(60, MinimumLength = 3)]
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [Required]
         public string Pianist { get; set; }
@@ -33,7 +35,6 @@ namespace SacramentMeetingPlanner.Models
         public string MusicDirector { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
-        [Required]
         [Display(Name = "Stake Authority")]
         public string StakeAuthority { get; set; }
         [Display(Name = "Announcement")]
@@ -42,6 +43,9 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "First Hymn")]
         public string FirstHymn { get; set; }
         [Display(Name = "First Prayer")]
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         public string FirstPrayer { get; set; }
         [Display(Name = "Announcement")]
         public string WardAnnouncements { get; set; }
@@ -60,6 +64,9 @@ namespace SacramentMeetingPlanner.Models
         [Display(Name = "Last Hymn")]
         public string LastHymn { get; set; }
         [Display(Name = "Last Prayer")]
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
+        [Required]
         public string LastPrayer { get; set; }
                 
     }

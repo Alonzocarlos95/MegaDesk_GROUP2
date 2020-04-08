@@ -49,17 +49,26 @@ namespace SacramentMeetingPlanner.Models
         public string FirstPrayer { get; set; }
         [Display(Name = "Announcement")]
         public string WardAnnouncements { get; set; }
+       
         [Display(Name = "Sacrament Hymn")]
         public string SacramentHymn { get; set; }
         
         
         [Display(Name = "Speaker Subject")]
         public string Speakersubjects { get; set; }
-        [Display(Name = "Message")]
+       
+        [Display(Name = "Message #1")]
         public string FirstMessagePerson { get; set; }
-        [Display(Name = "Message")]
+        
+        [Display(Name = "Speaker Subject")]
+        public string Speakersubjects2 { get; set; }
+        
+        [Display(Name = "Message #2")]
         public string SecondMessagePerson { get; set; }
-        [Display(Name = "Message")]
+        
+        [Display(Name = "Speaker Subject")]
+        public string Speakersubjects3 { get; set; }
+        [Display(Name = "Message #3")]
         public string ThirdMessagePerson { get; set; }
         [Display(Name = "Last Hymn")]
         public string LastHymn { get; set; }
